@@ -6,14 +6,27 @@ class Person(object):
 		self._dob = dob
 		self._gender = gender
 		self._nationality = nationality
+
+	def display(self):
+		return "Implement at inherited level"
+
 		
 class Student(Person):
-	def __init__(self, stdid, course):
+	def __init__(self, stdid, course, name, dob, gender, nationality):
+		Person.__init__(self,name, dob, gender, nationality)
 		self.__stdid = stdid
 		self.__course = course
+
+	def display(self):
+		print [self.__stdid, self._name, self._dob, self._gender, self._nationality, self.__course ]
+		
 		
 
 class Staff(Person):
-	def __init__(self, staffid, category="teaching"):
+	def __init__(self, staffid, category,name, dob, gender, nationality):
+		Person.__init__(self, name, dob, gender, nationality)
 		self.__staffid = staffid
 		self.__category = category
+
+	def display(self):
+		print [self.__staffid, self.__category, self._nationality, self._dob, self._gender]
