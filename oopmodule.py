@@ -6,9 +6,13 @@ class Person(object):
 		self._dob = dob
 		self._gender = gender
 		self._nationality = nationality
+		type(self).numofpple += 1
 
 	def display(self):
 		return "Implement at inherited level"
+
+	def __del__(self):
+		type(self).numofpple -= 1
 
 		
 class Student(Person):
@@ -17,10 +21,12 @@ class Student(Person):
 		self.__stdid = stdid
 		self.__course = course
 
+	def __del__(self):
+		Person.__del__(self)
+
 	def display(self):
 		print [self.__stdid, self._name, self._dob, self._gender, self._nationality, self.__course ]
-		
-		
+				
 
 class Staff(Person):
 	def __init__(self, staffid, category,name, dob, gender, nationality):
@@ -28,5 +34,9 @@ class Staff(Person):
 		self.__staffid = staffid
 		self.__category = category
 
+	def __del__(self):
+		pass
+		# Person.__del__(self)
+
 	def display(self):
-		print [self.__staffid, self.__category, self._nationality, self._dob, self._gender]
+		print [self.__staffid, self._name, self.__category, self._nationality, self._dob, self._gender]
