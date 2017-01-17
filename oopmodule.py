@@ -1,20 +1,19 @@
 class Person(object):
 	"""docstring for ClassName"""
 	numofpple = 0
-	def __init__(self, name, dob, gender, nationality):
-		self.name = name
-		self.dob = dob
-		self.gender = gender
-		self.nationality = nationality
+	def __init__(self, name="name", dob="11/11/11", gender="M", nationality="Kenyan"):
+		self._name = name
+		self._dob = dob
+		self._gender = gender
+		self._nationality = nationality
 		
 class Student(Person):
-	pass
+	def __init__(self, stdid, course):
+		self.__stdid = stdid
+		self.__course = course
+		
 
 class Staff(Person):
-	pass
-
-
-		
-
-		
-		
+	def __init__(self, staffid, category="teaching"):
+		self.__staffid = staffid
+		self.__category = category
